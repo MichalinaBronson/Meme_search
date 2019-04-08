@@ -1,56 +1,5 @@
-
-//<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-//<!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-
-// $(function() {
-//     var apiUrl = "https://pixabay.com/api/";
-//     var form = $(".form");
-//     var input = $(".form-search");
-//     var gallery = $(".gallery");
-//
-//     form.on('submit', function(event) {
-//         event.preventDefault();
-//         var query = input.val();
-//         loadImages(query);
-//
-//     });
-//
-//     function loadImages(searchQuery) {
-//
-//         $.ajax({
-//             url: apiUrl,
-//             method: "GET",
-//             data: {
-//                 q:searchQuery,
-//                 key: "11792766-a6dd693fea2374eff5945cd56"
-//             }
-//         }).done(function (response) {
-//             console.log(response);
-//
-//             gallery.empty();
-//             for (var i = 0; i < response.hits.length; i++) {
-//                 var img = $("<img src=" + response.hits[i].largeImageURL + " />");
-//                 gallery.append(img);
-//
-//                 img.css({
-//                     "height": "150px",
-//                     "width": "150px",
-//                     "margin": "2px"
-//             });
-//             }
-//
-//         }).fail(function(error) {
-//
-//         });
-//     }
-// })
-//
-
 $(function () {
 
-    // var apiUrl = "https://api.tenor.com/v1/search";
-    //
-    // var apiKey = "X4QXQJXLXEWR";
 
     var apiUrl = "http://version1.api.memegenerator.net//Generators_Search";
 
@@ -66,7 +15,7 @@ $(function () {
     form.on("submit", function (event) {
         event.preventDefault();
         submit.attr("disabled", true);
-        // submit.addClass("loading");
+
 
         var query = input.val();
 
@@ -80,7 +29,7 @@ $(function () {
             dataType: "json",
             method: "GET",
             data: {
-                q: searchQuery, //q: "query" ? - pokazywal sie tylko jeden obrazek, TMNT
+                q: searchQuery,
                 pageIndex: 0,
                 pageSize: 25,
                 apiKey: apiKey
@@ -100,7 +49,7 @@ $(function () {
 
 
         for (var i = 0; i < images.length; i++) {
-            var link = $("<a href=" + images[i].itemurl + "></a>";
+            var link = $("<a href=" + images[i].itemurl + "></a>");
             var img = $("<img src=" + images[i].imageUrl + " />");
 
             link.append(img);
